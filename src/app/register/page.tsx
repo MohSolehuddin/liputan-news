@@ -4,10 +4,14 @@ import InputGroup from "@/components/input/InputGroup";
 import InputPassword from "@/components/input/InputPassword";
 import InputSelect from "@/components/input/InputSelect";
 import { Button } from "@/components/ui/button";
+import axiosInstance from "@/lib/axiosIntance";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import registerSchema from "./registerSchema";
 export default function page() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -15,7 +19,14 @@ export default function page() {
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const response = axiosInstance.post("/auth/register", data);
+      router.push("/login");
+    } catch (error) {
+      console.log("Error", error);
+    }
+  });
 
   return (
     <AuthContainer onSubmit={onSubmit}>

@@ -16,8 +16,12 @@ export default function InputGroup({
 }) {
   return (
     <section className="flex flex-col gap-1">
-      <Label>{label}</Label>
-      <Input placeholder={placeholder} {...(register ?? {})} />
+      <Label htmlFor={register?.name}>{label}</Label>
+      <Input
+        id={register?.name}
+        placeholder={placeholder}
+        {...(register ?? {})}
+      />
       {error && <p className="text-sm text-red-400">{error}</p>}
     </section>
   );

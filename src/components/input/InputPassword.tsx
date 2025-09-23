@@ -16,9 +16,10 @@ export default function InputPassword({
 }) {
   return (
     <section className="flex flex-col gap-1">
-      <Label>{label}</Label>
+      <Label htmlFor={register?.name}>{label}</Label>
       <section className="relative">
         <Input
+          id={register?.name}
           type="password"
           placeholder={placeholder}
           {...(register ?? {})}

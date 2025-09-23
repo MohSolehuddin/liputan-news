@@ -3,11 +3,15 @@ import AuthContainer from "@/components/container/AuthContainer";
 import InputGroup from "@/components/input/InputGroup";
 import InputPassword from "@/components/input/InputPassword";
 import { Button } from "@/components/ui/button";
+import axiosInstance from "@/lib/axiosIntance";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import loginSchema from "./loginSchema";
 
 export default function page() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -15,7 +19,16 @@ export default function page() {
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const response = await axiosInstance.post("/auth/login", data);
+      console.log(response.data);
+      localStorage.setItem("token", response.data.token);
+      router.push("/");
+    } catch (error) {
+      console.log("Error", error);
+    }
+  });
 
   return (
     <AuthContainer onSubmit={onSubmit}>
