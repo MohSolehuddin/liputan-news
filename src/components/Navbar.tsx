@@ -4,11 +4,11 @@ import { cva, VariantProps } from "class-variance-authority";
 const navbarVariants = cva("w-full flex justify-between", {
   variants: {
     variant: {
-      default: "",
+      default: "bg-white sm:bg-transparent",
       whiteBackground: "bg-white",
     },
     size: {
-      default: "px-[60px] py-8",
+      default: "px-[20px] py-3 sm:px-[60px] sm:py-8",
     },
     position: {
       fixed: "fixed top-0 z-10",
@@ -45,7 +45,8 @@ function Navbar({
     <nav
       className={cn(navbarVariants({ variant, size, position, className }))}
       {...props}>
-      <img src={logoSrc} alt="" />
+      <img src={logoSrc} className="max-sm:hidden" alt="logo" />
+      <img src="/logo.svg" className="sm:hidden" alt="logo" />
       <a
         href="/profile"
         id="user-profile"

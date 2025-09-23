@@ -16,7 +16,7 @@ export default function SelectCategory({
 }) {
   return (
     <Select>
-      <SelectTrigger className="w-[180px] min-h-10 h-10 rounded-md text-sm font-normal bg-white border border-slate-200 px-3 py-2">
+      <SelectTrigger className="w-full sm:w-[180px] min-h-10 h-10 rounded-md text-sm font-normal bg-white border border-slate-200 px-3 py-2">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

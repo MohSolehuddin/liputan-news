@@ -9,11 +9,13 @@ export default function Card() {
         />
       </div>
       <section className="flex flex-col gap-2 w-full">
-        <p className="text-sm font-normal text-slate-600">April 13, 2025</p>
-        <p className="text-lg font-semibold text-slate-900">
+        <p className=" text-xs sm:text-sm font-normal text-slate-600">
+          April 13, 2025
+        </p>
+        <p className="text-base sm:text-lg font-semibold text-slate-900">
           Cybersecurity Essentials Every Developer Should Know
         </p>
-        <p className="text-base font-normal text-slate-900">
+        <p className="text-xs sm:text-base font-normal text-slate-900">
           Protect your apps and users with these fundamental cybersecurity
           practices for developers.
         </p>

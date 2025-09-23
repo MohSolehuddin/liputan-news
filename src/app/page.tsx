@@ -18,23 +18,23 @@ export default function Home() {
     <main className="bg-background w-full overflow-x-hidden">
       <header
         id="hero-section"
-        className="w-full flex justify-center items-center h-[500px] bg-[url('/assets/hero-background.jpg')] opacity-[86] bg-cover bg-center bg-[#2563EBDB] bg-blend-multiply">
+        className="w-full flex justify-center items-center h-[500px] max-sm:px-[20px] max-sm:h-[560px] bg-[url('/assets/hero-background.jpg')] opacity-[86] bg-cover bg-center bg-[#2563EBDB] bg-blend-multiply">
         <Navbar />
-        <section className="m-auto flex flex-col w-[730px] gap-10">
+        <section className="m-auto flex flex-col w-full sm:w-[730px] gap-10">
           <section
             id="hero-content"
             className="flex flex-col text-center text-white gap-3">
-            <p className="text-base font-bold">Blog genzet</p>
-            <p className="text-5xl font-medium">
+            <p className="text-sm sm:text-base font-bold">Blog genzet</p>
+            <p className="text-4xl sm:text-5xl font-medium">
               The Journal : Design Resources, Interviews, and Industry News
             </p>
-            <p className="text-2xl font-normal">
+            <p className="text-xl sm:text-2xl font-normal">
               Your daily dose of design insights!
             </p>
           </section>
           <section
             id="filter-and-search"
-            className="flex gap-[6px] m-auto w-fit rounded-xl p-[10px] bg-primary">
+            className="flex gap-[6px] m-auto max-sm:flex-wrap w-full sm:w-fit rounded-xl p-[10px] bg-primary">
             <SelectCategory placeholder="Select category" options={["Admin"]} />
             <InputSearch />
           </section>
@@ -42,11 +42,11 @@ export default function Home() {
       </header>
       <section
         id="list-articles-section"
-        className="px-[100px] pb-[100px] pt-10 flex flex-col gap-6">
-        <p className="text-base font-medium text-slate-600">
+        className="px-[20px] sm:px-[100px] pb-[60px] sm:pb-[100px] pt-10 flex flex-col w-full">
+        <p className="max-sm:hidden text-base font-medium text-slate-600">
           Showing : 20 of 240 articles
         </p>
-        <section className="flex flex-col gap-[60px]">
+        <section className="flex flex-col gap-6 sm:gap-[60px]">
           <section className="w-full m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             <Card />
             <Card />
