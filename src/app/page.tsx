@@ -1,17 +1,9 @@
 import Card from "@/components/Card";
+import CustomPagination from "@/components/CustomPagination";
 import Footer from "@/components/Footer";
 import InputSearch from "@/components/input/InputSearch";
 import SelectCategory from "@/components/input/SelectCategory";
 import { Navbar } from "@/components/Navbar";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 
 export default function Home() {
   return (
@@ -58,33 +50,7 @@ export default function Home() {
             <Card />
             <Card />
           </section>
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious href="#" />
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">1</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#" isActive>
-                  2
-                </PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationEllipsis />
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">99</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">100</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationNext href="#" />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+          <CustomPagination />
         </section>
       </section>
       <Footer />

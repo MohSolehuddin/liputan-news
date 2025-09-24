@@ -1,7 +1,27 @@
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import { cva, VariantProps } from "class-variance-authority";
 import { Search } from "lucide-react";
-import { Input } from "../ui/input";
 
-export default function InputSearch() {
+const variantInputSearch = cva(
+  "bg-white text-slate-400 text-sm font-normal rounded-md",
+  {
+    variants: {
+      size: {
+        default: "w-full sm:w-[400px] h-10 pl-8",
+        sm: "w-full sm:w-[240px] h-9 pl-8",
+      },
+    },
+    defaultVariants: {
+      size: "default",
+    },
+  }
+);
+
+export default function InputSearch({
+  className,
+  size,
+}: { className?: string } & VariantProps<typeof variantInputSearch>) {
   return (
     <section className="relative max-sm:w-full">
       <Search
@@ -10,7 +30,7 @@ export default function InputSearch() {
       />
       <Input
         placeholder="Search articles"
-        className="w-full sm:w-[400px] h-10 pl-8 bg-white text-slate-400 text-sm font-normal rounded-md"
+        className={cn(variantInputSearch({ size }), className)}
       />
     </section>
   );
