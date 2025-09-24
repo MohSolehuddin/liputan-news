@@ -5,7 +5,7 @@ const navbarVariants = cva("w-full flex justify-between", {
   variants: {
     variant: {
       default: "bg-white sm:bg-transparent",
-      whiteBackground: "bg-white",
+      whiteBackground: "bg-white border border-b border-slate-200",
     },
     size: {
       default: "px-[20px] py-3 sm:px-[60px] sm:py-8",
