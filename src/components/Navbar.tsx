@@ -1,14 +1,16 @@
 import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
 
-const navbarVariants = cva("w-full flex justify-between", {
+const navbarVariants = cva("flex justify-between", {
   variants: {
     variant: {
-      default: "bg-white sm:bg-transparent",
-      whiteBackground: "bg-white border border-b border-slate-200",
+      default: "w-full bg-white sm:bg-transparent",
+      whiteBackground: "w-full bg-white border border-b border-slate-200",
+      admin: "bg-gray-50 border border-b border-slate-200",
     },
     size: {
       default: "px-[20px] py-3 sm:px-[60px] sm:py-8",
+      sm: "px-6 pb-4 pt-[20px]",
     },
     position: {
       fixed: "fixed top-0 z-10",
@@ -38,14 +40,20 @@ function Navbar({
   navbarProps) {
   const logoSrc =
     variant === "whiteBackground" ? "/logo.svg" : "/assets/logo-white.svg";
-  const textStyle =
-    variant === "whiteBackground" ? "text-slate-900" : "text-white";
+  let textStyle = "text-white";
+  if (variant === "admin" || variant === "whiteBackground")
+    textStyle = "text-slate-900";
 
   return (
     <nav
       className={cn(navbarVariants({ variant, size, position, className }))}
       {...props}>
-      <img src={logoSrc} className="max-sm:hidden" alt="logo" />
+      {variant === "admin" && (
+        <h1 className="text-2xl font-semibold">Articles</h1>
+      )}
+      {variant != "admin" && (
+        <img src={logoSrc} className="max-sm:hidden" alt="logo" />
+      )}
       <img src="/logo.svg" className="sm:hidden" alt="logo" />
       <a
         href="/profile"
