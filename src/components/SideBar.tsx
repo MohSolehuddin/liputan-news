@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { LogOut, LucideIcon, Newspaper, Tag } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 type ItemListProps = {
   title: string;
@@ -21,8 +20,10 @@ const ItemList = ({ title, link, active = false, Icon }: ItemListProps) => {
   );
 };
 
-export default function SideBar({ className }: React.ComponentProps<"aside">) {
-  const pathName = usePathname();
+export default function SideBar({
+  className,
+  pathName,
+}: React.ComponentProps<"aside"> & { pathName: string }) {
   return (
     <aside
       className={cn(

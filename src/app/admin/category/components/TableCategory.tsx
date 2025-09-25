@@ -1,21 +1,13 @@
-import { TdImage, TdText, Thead } from "@/components/Table";
+import { TdText, Thead } from "@/components/Table";
 
 type TableArticleProps = {};
 
 const TrData = () => {
   return (
     <tr className="text-center">
-      <TdImage src="https://picsum.photos/seed/picsum/1120/480" />
-      <TdText
-        data="Cybersecurity Essentials Every Developer Should Know"
-        className="text-start"
-      />
-      <TdText data="Technology" />
+      <TdText data="Category" />
       <TdText data="April 13, 2025" />
       <td className="w-1/5 bg-slate-50 border-b border-b-slate-200">
-        <a className="text-blue-600 underline px-3 py-1 rounded-full text-sm font-normal">
-          Preview
-        </a>
         <a className="text-blue-600 underline px-3 py-1 rounded-full text-sm font-normal">
           Edit
         </a>
@@ -26,10 +18,10 @@ const TrData = () => {
     </tr>
   );
 };
-export default function TableArticle({}: TableArticleProps) {
+export default function TableCategory({}: TableArticleProps) {
   return (
     <table className="w-full">
-      <Thead />
+      <Thead headData={["Category", "Created at", "Action"]} />
       <tbody>
         <TrData />
         <TrData />

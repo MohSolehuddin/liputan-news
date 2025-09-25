@@ -21,7 +21,10 @@ const variantInputSearch = cva(
 export default function InputSearch({
   className,
   size,
-}: { className?: string } & VariantProps<typeof variantInputSearch>) {
+  placeholder = "Search articles",
+}: { className?: string; placeholder?: string } & VariantProps<
+  typeof variantInputSearch
+>) {
   return (
     <section className="relative max-sm:w-full">
       <Search
@@ -29,7 +32,7 @@ export default function InputSearch({
         style={{ opacity: 1 }}
       />
       <Input
-        placeholder="Search articles"
+        placeholder={placeholder}
         className={cn(variantInputSearch({ size }), className)}
       />
     </section>
