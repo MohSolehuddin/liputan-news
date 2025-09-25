@@ -26,6 +26,7 @@ const navbarVariants = cva("flex justify-between", {
 
 type navbarProps = {
   username?: string;
+  pageName?: string;
 };
 
 function Navbar({
@@ -34,6 +35,7 @@ function Navbar({
   size,
   position,
   username = "James Dean",
+  pageName = "Articles",
   ...props
 }: React.ComponentProps<"nav"> &
   VariantProps<typeof navbarVariants> &
@@ -49,7 +51,7 @@ function Navbar({
       className={cn(navbarVariants({ variant, size, position, className }))}
       {...props}>
       {variant === "admin" && (
-        <h1 className="text-2xl font-semibold">Articles</h1>
+        <h1 className="text-2xl font-semibold">{pageName}</h1>
       )}
       {variant != "admin" && (
         <img src={logoSrc} className="max-sm:hidden" alt="logo" />

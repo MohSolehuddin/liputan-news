@@ -1,5 +1,7 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { LogOut, LucideIcon, Newspaper, Tag } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 type ItemListProps = {
   title: string;
@@ -20,6 +22,7 @@ const ItemList = ({ title, link, active = false, Icon }: ItemListProps) => {
 };
 
 export default function SideBar({ className }: React.ComponentProps<"aside">) {
+  const pathName = usePathname();
   return (
     <aside
       className={cn(
@@ -34,9 +37,14 @@ export default function SideBar({ className }: React.ComponentProps<"aside">) {
               title="Articles"
               link="/admin"
               Icon={Newspaper}
-              active={true}
+              active={pathName === "/admin"}
             />
-            <ItemList title="Category" link="/admin/category" Icon={Tag} />
+            <ItemList
+              title="Category"
+              link="/admin/category"
+              Icon={Tag}
+              active={pathName === "/admin/category"}
+            />
             <ItemList title="Logout" link="#" Icon={LogOut} />
           </ul>
         </section>
