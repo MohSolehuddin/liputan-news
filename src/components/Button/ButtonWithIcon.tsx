@@ -4,14 +4,22 @@ import { Button } from "../ui/button";
 export default function ButtonWithIcon({
   Icon,
   children,
+  ...props
 }: {
   Icon: LucideIcon;
   children: React.ReactNode;
-}) {
+} & React.ComponentProps<typeof Button>) {
   return (
-    <Button asChild={true}>
+    <Button asChild={true} {...props}>
       <button>
-        <Icon />
+        <Icon
+          style={{
+            color: "white",
+            opacity: 1,
+            height: 20,
+            width: 20,
+          }}
+        />
         {children}
       </button>
     </Button>

@@ -7,12 +7,13 @@ import TableCategory from "./components/TableCategory";
 export default function page() {
   return (
     <ContentContainer
+      titleForCount="Total Category"
       actionComponent={
         <>
           <section className="flex gap-2">
             <InputSearch size="sm" placeholder="Search category" />
           </section>
-          <ButtonWithIcon Icon={PlusIcon}>Add article</ButtonWithIcon>
+          <ButtonWithIcon Icon={PlusIcon}>Add category</ButtonWithIcon>
         </>
       }>
       <TableCategory />

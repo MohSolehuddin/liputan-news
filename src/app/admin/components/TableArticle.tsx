@@ -1,7 +1,5 @@
 import { TdImage, TdText, Thead } from "@/components/Table";
 
-type TableArticleProps = {};
-
 const TrData = () => {
   return (
     <tr className="text-center">
@@ -26,7 +24,7 @@ const TrData = () => {
     </tr>
   );
 };
-export default function TableArticle({}: TableArticleProps) {
+export default function TableArticle() {
   return (
     <table className="w-full">
       <Thead />

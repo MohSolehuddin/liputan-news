@@ -19,9 +19,9 @@ export default function DashboardLayout({
           variant="admin"
           size="sm"
           position="none"
-          {...(pathName.length > 7
-            ? { pageName: pathNameFormatter(pathName) }
-            : {})}
+          pageName={
+            pathName.length > 7 ? pathNameFormatter(pathName) : undefined
+          }
         />
         <section className="col-start-2 row-start-2 overflow-y-scroll px-6 pt-6">
           {children}
